@@ -3,9 +3,10 @@ package r_way_tries
 import (
 	"testing"
 )
-func TestInsert(t *testing.T) {
-	Put("Tuanpa", "xTuanpa");
-	Put("Tuanpaa", "xxx");
-	Put("Pi", "Tuanpa");
-	Put("Pia", "Tuanpa");
+func TestPut(t *testing.T) {
+	Put("Tuanpa", 1);
+	Put("Tuanpaa", 2);
+	Put("Pi", 3);
+	Put("Pia", 4);
+	Put("Piabc", 5);
 }

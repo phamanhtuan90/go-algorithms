@@ -10,7 +10,7 @@ type Node struct {
 var root = &Node{"", make(map[string]*Node)}
 var size int
 
-func Put(key string, val string) {
+func Put(key string, val interface{}) {
 	if key == "" {
 		log.Fatal("Key not null");
 	}
@@ -21,7 +21,6 @@ func Get(key string) interface{} {
 	if key == "" {
 		log.Fatal("Key not null");
 	}
-
 	nodeResult := get(root, key, 0)
 	return nodeResult.value
 }
@@ -38,7 +37,7 @@ func get(node *Node, key string, d int) *Node {
 	return get(node.next[c], key, d+1)
 }
 
-func put(node *Node, key string, val string, d int) *Node {
+func put(node *Node, key string, val interface{}, d int) *Node {
 	if d == len(key) {
 		if val == "" {
 			size++
