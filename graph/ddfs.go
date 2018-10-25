@@ -8,7 +8,7 @@ type DirectDFS struct {
 	s      int
 }
 
-func NewDirectDFS(G DiGraph, s int) *DirectDFS {
+func NewDirectDFS(G *DiGraph, s int) *DirectDFS {
 	d := DirectDFS{
 		make([]bool, G.V),
 		make([]int, G.V),
@@ -18,7 +18,7 @@ func NewDirectDFS(G DiGraph, s int) *DirectDFS {
 	return &d
 }
 
-func (d *DirectDFS) dfs(G DiGraph, v int) {
+func (d *DirectDFS) dfs(G *DiGraph, v int) {
 	d.marked[v] = true
 	for w, value := range G.Adj(v) {
 		if value && !d.marked[w] {
@@ -41,6 +41,6 @@ func (d *DirectDFS) PathTo(v int) interface{} {
 		paths.Push(d.s)
 	}
 
-	return stackObj
+	return paths
 
 }

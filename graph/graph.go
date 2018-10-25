@@ -6,7 +6,7 @@ type Graph struct {
 }
 
 func NewGraph(v int) *Graph {
-	G := Diraph{
+	G := Graph{
 		v,
 		make([][]bool, v, v),
 	}
@@ -19,6 +19,7 @@ func NewGraph(v int) *Graph {
 
 func (G *Graph) AddEdge(v int, w int) {
 	G.Bag[v][w] = true
+	G.Bag[w][v] = true
 }
 func (G *Graph) Adj(v int) []bool  {
 	return G.Bag[v]

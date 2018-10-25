@@ -7,7 +7,7 @@ type DepthFirstOrder struct {
 	reversePost *stack.Stack
 }
 
-func NewDepthFirstOrder(G DiGraph) *DepthFirstOrder {
+func NewDepthFirstOrder(G *DiGraph) *DepthFirstOrder {
 	d := DepthFirstOrder{
 		make([]bool, G.V),
 		stack.NewStack(),
@@ -20,7 +20,7 @@ func NewDepthFirstOrder(G DiGraph) *DepthFirstOrder {
 	return &d
 }
 
-func (d *DepthFirstOrder) dfs(G DiGraph, v int) {
+func (d *DepthFirstOrder) dfs(G *DiGraph, v int) {
 	d.marked[v] = true
 	for w, value := range G.Adj(v) {
 		if value && !d.marked[w] {

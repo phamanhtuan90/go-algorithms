@@ -6,7 +6,7 @@ type CC struct {
 	id     [] int
 }
 
-func NewCC(G Diraph) *CC {
+func NewCC(G *Graph) *CC {
 	cc := CC{
 		make([] bool, G.V),
 		0,
@@ -21,7 +21,7 @@ func NewCC(G Diraph) *CC {
 	return &cc
 }
 
-func (cc *CC) dfs(G Diraph, v int) {
+func (cc *CC) dfs(G *Graph, v int) {
 	cc.marked[v] = true
 	cc.id[v] = cc.count
 	for w, isConnect := range G.Adj(v){

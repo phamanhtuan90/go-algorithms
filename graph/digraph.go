@@ -5,7 +5,7 @@ type DiGraph struct {
 	Bag [][] bool
 }
 
-func New(v int) *DiGraph {
+func NewDiGraph(v int) *DiGraph {
 	G := DiGraph{
 		v,
 		make([][]bool, v, v),
@@ -19,8 +19,23 @@ func New(v int) *DiGraph {
 
 func (G *DiGraph) AddEdge(v int, w int) {
 	G.Bag[v][w] = true
-	G.Bag[w][v] = true
 }
 func (G *DiGraph) Adj(v int) []bool  {
 	return G.Bag[v]
 }
+
+func (G *DiGraph) Reverse() *DiGraph  {
+	reverse := NewDiGraph(G.V)
+	for v := 0; v < G.V; v++ {
+		for w, isConnect := range G.Adj(v) {
+			if isConnect {
+				reverse.AddEdge(w, v)
+			}
+		}
+	}
+	return reverse
+
+}
+
+
+

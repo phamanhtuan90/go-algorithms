@@ -8,7 +8,7 @@ type DFS struct {
 	s      int
 }
 
-func NewDFS(G Graph, s int) *DFS {
+func NewDFS(G *Graph, s int) *DFS {
 	d := DFS{
 		make([]bool, G.V),
 		make([]int, G.V),
@@ -18,7 +18,7 @@ func NewDFS(G Graph, s int) *DFS {
 	return &d
 }
 
-func (d *DFS) Dfs(G Graph, v int) {
+func (d *DFS) Dfs(G *Graph, v int) {
 	d.marked[v] = true
 	for w, value := range G.Adj(v) {
 		if value && !d.marked[w] {

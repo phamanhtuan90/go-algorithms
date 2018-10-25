@@ -12,17 +12,18 @@ type BFS struct {
 	s      int
 }
 
-func NewBFS(G Graph, s int) *BFS {
+func NewBFS(G *Graph, s int) *BFS {
 	b := BFS{
 		make([] bool, G.V),
 		make([] int, G.V),
 		make([] int, G.V),
 		s,
 	}
+	b.Bfs(G, s)
 	return &b
 }
 
-func (B *BFS) Bfs(G Graph, s int) {
+func (B *BFS) Bfs(G *Graph, s int) {
 	for i := 0; i < G.V; i++ {
 		B.distTo[i] = math.MaxInt32
 	}
