@@ -3,6 +3,7 @@ package r_way_tries
 import (
 	"testing"
 )
+
 func TestPut(t *testing.T) {
 	Put("Tuanpa", 1);
 	Put("Tuanpaa", 2);

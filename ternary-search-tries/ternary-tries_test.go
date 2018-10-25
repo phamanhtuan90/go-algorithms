@@ -5,6 +5,7 @@ import (
 	"testing"
 	"fmt"
 )
+
 func TestPut(t *testing.T) {
 	Put("sunday", 1);
 	Put("monday", 2);
